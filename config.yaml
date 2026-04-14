@@ -1,0 +1,8 @@
+path: C:/MBA_IA/3_SISTEMAS_GENERATIVOS_EM_VISA_O_COMPUTACIONAL/Visa_o_Computacional_e_Modelos_Generativos/Trabalho Prático/trabalho_pratico/dataset
+train: train/images
+val: val/images
+test: test/images
+
+names:
+  0: Pistola
+  1: Fuzil

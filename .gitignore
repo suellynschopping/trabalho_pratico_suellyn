@@ -1,0 +1,46 @@
+# Modelos base (baixar separadamente via ultralytics)
+yolov8n.pt
+yolov8m.pt
+
+# Ambiente virtual
+venv_trabalho/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Ferramenta de rotulagem
+YoloLabel-Windows-x64/
+YoloLabel-Windows-x64.zip
+
+# Pasta __MACOSX do zip
+__MACOSX/
+
+# Vídeo (arquivo grande - >100MB)
+video/
+
+# Imagens negativas (já incluídas no train/images)
+dataset/negativos/
+
+# Cache do YOLO
+dataset/**/*.cache
+
+# Treinos anteriores (v1=nano sem freeze, v2=medium 149MB)
+runs/detect/transfer_v1_ep30/
+runs/detect/transfer_v2_ep100/
+
+# Partições de validação intermediárias geradas pelo YOLO
+runs/detect/val/
+runs/detect/val*/
+
+# Inferências (geradas pelo inferencia.py — re-gerar com: python inferencia.py)
+runs/detect/runs/
+
+# Script auxiliar de geração de relatório
+gerar_relatorio.py
+treino-velho.py
+*.DS_Store
+.DS_Store
