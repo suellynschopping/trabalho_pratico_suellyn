@@ -28,9 +28,13 @@ dataset/negativos/
 # Cache do YOLO
 dataset/**/*.cache
 
-# Treinos anteriores (v1=nano sem freeze, v2=medium 149MB)
+# Treinos anteriores
+# - v1=nano sem freeze (0 deteccoes em pratica)
+# - v2=medium 149MB (resultados piores por overfitting)
+# - v3=nano com early stop na epoca 68 (substituido por v4)
 runs/detect/transfer_v1_ep30/
 runs/detect/transfer_v2_ep100/
+runs/detect/transfer_v3_ep100/
 
 # Partições de validação intermediárias geradas pelo YOLO
 runs/detect/val/

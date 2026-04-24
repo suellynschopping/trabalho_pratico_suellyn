@@ -10,7 +10,7 @@ import argparse
 from ultralytics import YOLO
 
 # Caminho padrao do melhor modelo treinado
-DEFAULT_MODEL = 'runs/detect/transfer_v3_ep100/yolo_transfer_n/weights/best.pt'
+DEFAULT_MODEL = 'runs/detect/transfer_v4_ep100_full/yolo_transfer_n/weights/best.pt'
 DEFAULT_SOURCE = 'dataset/test/images'
 
 def main():

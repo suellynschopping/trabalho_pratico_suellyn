@@ -24,7 +24,7 @@ if __name__ == '__main__':
     yolo_custom = YOLO("yolov8n.pt")
 
     # dados identificacao do projeto/modelo
-    projeto = "transfer_v3_ep100"
+    projeto = "transfer_v4_ep100_full"
     nome_modelo = "yolo_transfer_n"
     path_config_yaml = 'config.yaml'
 
@@ -32,7 +32,8 @@ if __name__ == '__main__':
     # - yolov8n: menos parametros = menos overfitting com poucos dados
     # - freeze=10: congela backbone (features do COCO) e treina so a cabeca
     #   de deteccao — estrategia classica de transfer learning para poucos dados
-    # - 100 epocas / patience 40: mais tempo para convergir
+    # - 100 epocas completas (patience=0 desabilita early stopping para
+    #   gerar curvas completas de treinamento)
     # - lr0=0.005: learning rate intermediario — mais estavel que 0.01
     # - augmentacao variada: rotacao, shear, perspectiva para mais diversidade
     # - negativos ja incluidos em train/images sem labels correspondentes
@@ -45,7 +46,7 @@ if __name__ == '__main__':
         project=projeto,
         name=nome_modelo,
         exist_ok=False,
-        patience=40,
+        patience=0,
         plots=True,
         amp=False,
         verbose=False,
@@ -64,6 +65,8 @@ if __name__ == '__main__':
     )
 
     best_model_path = f'runs/detect/{projeto}/{nome_modelo}/weights/best.pt'
+    print(f'\nTreino completo das 100 epocas finalizado.')
+    print(f'Melhor modelo salvo em: {best_model_path}')
     # instancia melhor epoca modelo treinado
     yolo_best = YOLO(best_model_path)
 

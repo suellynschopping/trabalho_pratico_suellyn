@@ -127,11 +127,11 @@ para o caminho absoluto do dataset na sua máquina.
 
     Principais hiperparâmetros (definidos em treino.py):
       - modelo base ........ YOLOv8n (yolov8n.pt)
-      - épocas ............. 100
+      - épocas ............. 100 (completas, sem early stopping)
       - imgsz .............. 640
       - batch .............. 8
       - device ............. cuda:0
-      - patience ........... 40
+      - patience ........... 0 (early stopping desabilitado)
       - freeze ............. 10 (congela o backbone - transfer learning)
       - lr0 / lrf .......... 0.005 / 0.01
       - augmentações ....... mosaic, copy_paste, hsv, rotação, shear,
@@ -146,7 +146,7 @@ para o caminho absoluto do dataset na sua máquina.
       - AP@50 por classe (Pistola e Fuzil)
 
     Os pesos do melhor modelo ficam em:
-      runs/detect/transfer_v3_ep100/yolo_transfer_n/weights/best.pt
+      runs/detect/transfer_v4_ep100_full/yolo_transfer_n/weights/best.pt
 
 
 6.2) Inferência
@@ -203,7 +203,7 @@ também estão disponíveis no relatório técnico:
 Gráficos e matrizes de confusão gerados automaticamente pela Ultralytics
 ficam em:
 
-    runs/detect/transfer_v3_ep100/yolo_transfer_n/
+    runs/detect/transfer_v4_ep100_full/yolo_transfer_n/
 
 
 ------------------------------------------------------------------------
@@ -214,9 +214,9 @@ ficam em:
   em CPU, basta alterar device='cpu' em treino.py (o treino ficará
   significativamente mais lento).
 
-- Caso a pasta runs/detect/transfer_v3_ep100/ já exista, o parâmetro
+- Caso a pasta runs/detect/transfer_v4_ep100_full/ já exista, o parâmetro
   exist_ok=False fará o YOLO criar um novo diretório versionado
-  (transfer_v3_ep100_2, etc.).
+  (transfer_v4_ep100_full_2, etc.).
 
 - O dataset contém conteúdo sensível (armas de fogo) e foi utilizado
   exclusivamente para fins acadêmicos, com o objetivo de estudar
